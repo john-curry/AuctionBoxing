@@ -170,7 +170,8 @@ namespace Auction_Boxing_2
             this.bounds = new Rectangle(0, 0, ClientBounds.Width, ClientBounds.Height);
             this.inputs = inputs;
 
-            background = content.Load<Texture2D>("Boxing/AB Background");
+            background = content.Load<Texture2D>("white");
+            //background = content.Load<Texture2D>("blacklvlpng");
             font = content.Load<SpriteFont>("Menu/menufont");
             blank = content.Load<Texture2D>("White");
 
@@ -192,11 +193,14 @@ namespace Auction_Boxing_2
 
             state = boxingstate.idle;
 
-            level = new Level(this, ClientBounds, blank, background);
+            level = new Level(this,content, ClientBounds, blank);
 
             for (int i = 0; i < 4; i++)
-                playerStartPositions[i] = new Vector2(bounds.X + bounds.Width / 5 * (i + 1), level.platforms[level.platforms.Length - 1].Y);
-
+            {
+                var d = level.platforms.ToDictionary(p => p.Y);
+                Rectangle r = d[d.Keys.Max()];
+                playerStartPositions[i] = new Vector2(bounds.X + bounds.Width / 5 * (i + 1), r.Y);
+            }
            
             //level.platforms[level.platforms.Length - 1].Y = (int)playerStartPositions[0].Y;
 
@@ -735,6 +739,7 @@ namespace Auction_Boxing_2
 
         public Rectangle GetLowerPlatform(Vector2 pos)
         {
+            
             //float l = platformlevel;
             for (int i = level.platforms.Length - 1; i > 0; i--)
             {
@@ -744,12 +749,13 @@ namespace Auction_Boxing_2
 
                 if (right > level.platforms[i].X && left < level.platforms[i].X + level.platforms[i].Width && level.platforms[i].Y > pos.Y)
                 {
-                   // l = level.platforms[i].Y;
+                    // l = level.platforms[i].Y;
                     //Debug.WriteLine("Found new platform!");
                     return level.platforms[i];// 
                 }
 
             }
+             
             return level.platforms[level.platforms.Length - 1];
         }
 
@@ -767,7 +773,7 @@ namespace Auction_Boxing_2
                     if (players[i] != item.player) // collision with unfriendly player
                     {
                         // Check for a collision!
-                        if(players[i].IntersectPixels(item))
+                        if (players[i].IntersectPixels(item))
                             players[i].state.isHitByItem(item, new StateHit(players[i]));// TODO : check for collision with player
                     }
                 }
@@ -776,7 +782,7 @@ namespace Auction_Boxing_2
 
         public void HandleCollisions(int player, GameTime gameTime)
         {
-            
+
             // level collision
             if (players[player].currentVerticalSpeed > 0)// && players[player].state is StateFall))
             {
@@ -822,6 +828,7 @@ namespace Auction_Boxing_2
                     }
                 }
             }
+
 
             // For attacking player-on-player collision (Uses per pixel)
             for(int i = 0; i < 4; i++)
@@ -897,24 +904,7 @@ namespace Auction_Boxing_2
                 }
             }
             
-            /*
-            foreach (ItemInstance instance in itemInstances)
-            {
-                if (!instance.isEffect)
-                {
-                    foreach (BoxingPlayer player in Players)
-                    {
-                        if (player.Hurtbox.Intersects(instance.hitbox) && player.playerindex != instance.playerId)
-                        {
-                            if (Math.Abs(player.Position.Y - instance.position.Y) <= 20 && !(player.InternalState is StateHit))
-                    /            player.Hit(instance.item);
-                            Debug.WriteLine(player.Position.Y - instance.position.Y);
-                            //if(item is BowlerHatInstance && Math.Abs(player.Position.Y - item.position.Y 
-                        }
-                    }
-                }
-            }
-             * */
+           
         }
 
         public Color[] GetBitmapData(string key, int index, int framew, int frameh)

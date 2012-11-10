@@ -167,6 +167,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Propago\LevelObjects\LevelObjects.csproj">
+      <Project>{3D60C8CB-2284-426C-99DE-A696EA31E041}</Project>
+      <Name>LevelObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Auction_Boxing_2Content\Auction_Boxing_2Content.contentproj">
       <Name>Auction_Boxing_2Content</Name>
       <XnaReferenceType>Content</XnaReferenceType>

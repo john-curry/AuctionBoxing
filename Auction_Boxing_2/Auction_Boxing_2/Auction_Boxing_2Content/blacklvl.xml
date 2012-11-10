@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Generic="System.Collections.Generic">
+  <Asset Type="Generic:List[LevelObjects.RectangularObject]">
+    <Item>
+      <X>0</X>
+      <Y>500</Y>
+      <Width>800</Width>
+      <Height>10</Height>
+      <Name>thebottomone</Name>
+      <Type>platform</Type>
+      <ColorName>White</ColorName>
+      <TextureName>ground</TextureName>
+    </Item>
+    <Item>
+      <X>471</X>
+      <Y>373</Y>
+      <Width>300</Width>
+      <Height>10</Height>
+      <Name>theblackone</Name>
+      <Type>platform</Type>
+      <ColorName>Black</ColorName>
+      <TextureName>ground</TextureName>
+    </Item>
+  </Asset>
+</XnaContent>

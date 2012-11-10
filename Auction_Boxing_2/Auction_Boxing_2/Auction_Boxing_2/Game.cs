@@ -28,7 +28,7 @@ namespace Auction_Boxing_2
 
 
 
-            this.graphics.IsFullScreen = true;
+            //this.graphics.IsFullScreen = true;
 
             this.graphics.PreferredBackBufferWidth = 800;
             this.graphics.PreferredBackBufferHeight = 600;

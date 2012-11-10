@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Generic="System.Collections.Generic">
+  <Asset Type="Generic:List[LevelObjects.RectangularObject]">
+    <Item>
+      <X>20</X>
+      <Y>54</Y>
+      <Width>442</Width>
+      <Height>147</Height>
+      <Name>untitled</Name>
+      <Type>platform</Type>
+      <ColorName>AliceBlue</ColorName>
+      <TextureName>ground</TextureName>
+    </Item>
+    <Item>
+      <X>245</X>
+      <Y>254</Y>
+      <Width>585</Width>
+      <Height>78</Height>
+      <Name>untitled</Name>
+      <Type>platform</Type>
+      <ColorName>AliceBlue</ColorName>
+      <TextureName>ground</TextureName>
+    </Item>
+    <Item>
+      <X>169</X>
+      <Y>429</Y>
+      <Width>387</Width>
+      <Height>11</Height>
+      <Name>untitled</Name>
+      <Type>platform</Type>
+      <ColorName>AliceBlue</ColorName>
+      <TextureName>ground</TextureName>
+    </Item>
+    <Item>
+      <X>12</X>
+      <Y>503</Y>
+      <Width>669</Width>
+      <Height>10</Height>
+      <Name>untitled</Name>
+      <Type>platform</Type>
+      <ColorName>AliceBlue</ColorName>
+      <TextureName>ground</TextureName>
+    </Item>
+  </Asset>
+</XnaContent>

@@ -31,7 +31,7 @@ namespace Auction_Boxing_2.Boxing.PlayerStates
                 player.currentVerticalSpeed = -400;
             }
             canCatch = true;
-
+            
             canCombo = true;
         }
 
